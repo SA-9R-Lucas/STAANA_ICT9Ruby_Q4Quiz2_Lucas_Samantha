@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <title>Q4 Quiz 2</title>
+
+   <style>
+
+      body{
+         background-color: #ccb7ae;
+      }
+      #cover{
+         height:300px;
+         width: 230px;
+      }
+      .row{
+         display: flex;
+      }
+
+      button {
+         padding: 25px 25px;
+         cursor: pointer;
+         color: #797d62;
+         background-color: #797d62;
+         border: none;
+         border-radius: 25px;
+         box-shadow: 0 10px rosybrown;
+      }
+
+      button:hover {background-color: #797d62}
+
+      button:active {
+         background-color: #797d62;
+         box-shadow: 0 5px #797d62;
+         transform: translateY(4px);
+      }
+      h1{
+         background-color: #a3a380;
+         width: 930px;
+         font-family: Georgia;
+         margin-top:150px;
+      }
+      #Grade1, #Grade2, #Grade3{
+         background-color: #a4ac86;
+         font-size: 40px;
+         text-align: center;
+         color: #a4ac86;
+         width: 260px;
+         font-family: Georgia;
+         text-decoration: underline;
+      }
+
+   </style>
+
+</head>
+<body>
+<center>
+   <h1>Score Analyzer</h1>
+   <details ontoggle="message()">
+      <summary style="color: #fffcf2">Click Me</summary>
+      <i id="instructions" style="color: #fffcf2"></i>
+   </details>
+<script>
+   function message(){
+   document.getElementById("instructions").innerHTML = "Enter your grades in the following subjects.";
+}
+</script>
+</center>
+
+<br>
+
+<center>
+<div class="col-md-6">
+   <form action="#">
+      <div class="row">
+         <div class="col-md-4">
+            
+               <button type="button" class="btn btn-secondary" onclick="history()">
+               <img src="https://i.pinimg.com/736x/58/0e/35/580e350519d299a96db84b25430e960d.jpg" id="cover">
+               </button>
+           
+               <br><br>
+               <div id="gr1"></div>
+            
+         </div>
+         <div class="col-md-4">
+            <button type="button" class="btn btn-secondary" onclick="math()">
+               <img src="https://i.pinimg.com/736x/f2/a2/ff/f2a2ff2521e46ba6a91b52d2eb5eb1ad.jpg" id="cover">
+            </button>
+
+            <br><br>
+               <div id="gr2"></div>
+
+         </div>
+         <div class="col-md-4">
+            <button type="button" class="btn btn-secondary" onclick="english()">
+               <img src="https://i.pinimg.com/736x/f9/bd/70/f9bd706dd0a88fb5182038e01df6e0de.jpg" id="cover">
+            </button>
+
+            <br><br>
+               <div id="gr3"></div>
+         </div>
+      </div>
+
+      <br>
+
+      <button type="button" class="btn btn-secondary" onclick="AVG()">
+      Get Rating
+      </button>
+
+   </form>
+</div>
+
+<script>
+   function history(){
+      document.getElementById("gr1").innerHTML = 
+      "<input type='number' class='form-control' id='Grade1'>";
+   }
+   function math(){
+      document.getElementById("gr2").innerHTML = 
+      "<input type='number' class='form-control' id='Grade2'>";
+   }
+   function english(){
+      document.getElementById("gr3").innerHTML = 
+      "<input type='number' class='form-control' id='Grade3'>";
+   }
+
+   function AVG(){
+   var history = Number(document.getElementById("Grade1").value);
+   var math = Number(document.getElementById("Grade2").value);
+   var english = Number(document.getElementById("Grade3").value);
+
+   var ave = ((history + math + english)/3).toFixed(2);
+
+   switch (true) {
+   case (ave >= 94 && ave <= 100):
+        alert("Your average is " + ave + " - Excellent!");
+        break;
+
+   case (ave >= 87 && ave <= 93.99):
+        alert("Your average is " + ave + " - Above Satisfactory");
+        break;
+
+   case (ave >= 80 && ave <= 86.99):
+        alert("Your average is " + ave + " - Satisfactory");
+        break;
+
+   case (ave >= 75 && ave <= 79.99):
+        alert("Your average is " + ave + " - Needs Improvement");
+        break;
+
+   case (ave >= 70 && ave <= 74.99):
+        alert("Your average is " + ave + " - Poor");
+        break;
+    default:
+        alert("Failing. Study harder.");
+   }
+
+   }
+
+   
+   
+</script>
+      <br>
+
+      <p id = "source" style="color: #a3a380;">Note: <i>Grading Criteria and Equivalents can vary depending on school or district.</i></p>
+      
+      <hr>
+      <p style="color: #333d29;">@Samantha Lucas</p>
+     
+
+</center>
+</body>
+</html>
